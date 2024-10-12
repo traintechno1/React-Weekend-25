@@ -1,0 +1,39 @@
+.super-container{
+    height: 100vh;
+    width: 100%;
+}
+
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    padding: 20px;
+    border: 2px solid gray;
+    border-radius: 6px;
+    width: 260px;
+}
+
+.reset{
+    padding: 10px;
+    border: none;
+    border-radius:5px;
+    cursor: pointer;
+    background-color: orange;
+}
+
+.show-value{
+    padding: 0 20px;
+    font-weight: 600;
+}
+
+.reset-container{
+    padding: 20px 0;
+}
+
+.h3{
+    text-align: center;
+    margin-top: 0;
+}

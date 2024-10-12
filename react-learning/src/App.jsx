@@ -1,17 +1,18 @@
-import { useState } from 'react';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import First from './components/First';
 import Second from './components/Second';
+import ValueChange from './components/ValueChange';
+import GrowTable from './components/GrowTable';
 
 function App() {
-  
-  let [] = useState();
 
   return (
     <>
       {/* <First />  */}
-      <Second/>
+      {/* <Second/> */}
+      {/* <ValueChange /> */}
+      <GrowTable />
     </>
   )
 }

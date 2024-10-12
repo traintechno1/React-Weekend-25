@@ -1,0 +1,59 @@
+.grow-table{
+    border: 1px solid #8a8a8a;
+    border-collapse: collapse;
+}
+.tr{
+    border: 1px solid #8a8a8a;
+}
+.td, .th{
+    border: 1px solid #8a8a8a;
+    padding: 10px 30px;
+}
+
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.form-container{
+    padding: 20px;
+    border: 2px solid gray;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.field-container{
+    padding-bottom: 10px;
+}
+
+.label{
+    font-weight: 600;
+    width: 100px;
+    display: inline-block;
+}
+
+.input-element{
+    padding: 6px 10px;
+    border: 1px solid gray;
+    border-radius: 4px;
+}
+
+.input-element:focus{
+    outline: 1px solid #000;    
+}
+
+.add-btn{
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    color: #4f3f3f;
+    background-color: #bee922;
+    cursor: pointer;
+}
+
+.h3{
+    text-align: center;
+    color: red;
+}

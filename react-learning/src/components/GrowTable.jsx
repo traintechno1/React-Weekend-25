@@ -1,9 +1,14 @@
 
 import { useState } from 'react';
+import UpdateIcon from '../assets/images/update-icon.png';
 import '../css/GrowTable.css';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 const GrowTable = () =>{
-    let [tableData, setTableData] = useState([
+    let [userData, setUserData] = useState([
         {
             srNo: 101,
             firstName: 'Pavan',
@@ -25,6 +30,8 @@ const GrowTable = () =>{
             lastName: 'Lakabshetti'
         },
     ]);
+
+    const [isInEditMode, setIsInEditMode] = useState(false);
 
     const [books, setBooks] = useState(
         [
@@ -60,8 +67,54 @@ const GrowTable = () =>{
 
     const addUser = (event) =>{
         event.preventDefault();
+        console.log(formData);
         if(formData.srNo && formData.firstName && formData.lastName){
-            setTableData([...tableData, formData]);
+            if(isInEditMode){
+                // Edit Existing User case
+                let updateUser = {
+                    srNo: formData.srNo,
+                    firstName : formData.firstName,
+                    lastName: formData.lastName
+                }
+                setUserData((prevUsers)=>
+                    prevUsers.map(user=>{
+                        if(user.srNo === formData.srNo){
+                            return { ...user, ...updateUser }
+                        }
+                        else{
+                            return user;
+                        }
+                    })
+                )
+                setIsInEditMode(false);
+            }
+            else{
+                // Add New user case
+
+
+                // to check whether sr no is unique
+
+                let srNo = +formData.srNo;
+
+                let userIndex = userData.findIndex(user=> +user.srNo === srNo);
+                console.log(userIndex);
+                if(userIndex === -1 ){
+                    setUserData([...userData, formData]);
+                }
+                else{
+                    toast.error(`User with ${formData.srNo} already exist`, {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                    });
+                    return;
+                }
+            }
             setFormData({
                 srNo: '',
                 firstName: '',
@@ -76,15 +129,23 @@ const GrowTable = () =>{
             ...formData, [name] : value
         })
     }
+
+    const updateUser = (user) =>{
+        setIsInEditMode(true);
+        setFormData(user);
+    }
     
     return(
         <>
             <h3>Table</h3>
 
             <div className='flex-center'>
+                {/* User Section */}
                 <div>
+
+                    {/* Add User Form */}
                     <div className='form-container'>
-                        <h3 className='h3'>Add New User Form</h3>
+                        <h3 className='h3'>{isInEditMode ? 'Edit' : 'Add New'} User Form</h3>
                         <form>
                             <div className='field-container'>
                                 <label htmlFor="" className='label'>Sr No:</label>
@@ -93,7 +154,9 @@ const GrowTable = () =>{
                                     type="number" 
                                     name='srNo' 
                                     value={formData.srNo} 
-                                    onChange={handleValueChange} />
+                                    onChange={handleValueChange}
+                                    readOnly={isInEditMode}
+                                />
                             </div>
 
                             <div className='field-container'>
@@ -118,11 +181,13 @@ const GrowTable = () =>{
 
                             <div className='flex-center'>
                                 <button onClick={addUser} className='add-btn'>
-                                    Add New User
+                                    {isInEditMode ? 'Edit' : 'Add New'} User
                                 </button>
                             </div>
                         </form>
                     </div>
+                    
+                    {/* User Details Table */}
 
                     <table className="grow-table">
                         <thead>
@@ -130,21 +195,27 @@ const GrowTable = () =>{
                                 <th className='th'>Sr.No</th>
                                 <th className='th'>First Name</th>
                                 <th className='th'>Last Name</th>
+                                <th className='th'>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                         {
-                            tableData.map((tableRow, index)=>{
+                            userData.map((user, index)=>{
                                 return(
                                     <tr className='tr' key={index}>
                                         <td className='td'>
-                                            {tableRow.srNo}
+                                            {user.srNo}
                                         </td>
                                         <td className='td'>
-                                            { tableRow.firstName}
+                                            { user.firstName}
                                         </td>
                                         <td className='td'>
-                                            {tableRow.lastName}
+                                            {user.lastName}
+                                        </td>
+                                        <td className='flex-center update-btn-cell'>
+                                            <button className='update-btn' onClick={()=> updateUser(user)}>
+                                                <img src={UpdateIcon} alt="Update Icon" className='update-icon' />
+                                            </button>
                                         </td>
                                     </tr>
                                 )
@@ -154,6 +225,7 @@ const GrowTable = () =>{
                     </table>
                 </div>
 
+                {/* Book Details Table */}
                 <table className="grow-table">
                     <thead>
                         <tr className='tr'>
@@ -191,6 +263,16 @@ const GrowTable = () =>{
                     </tbody>
                 </table>
             </div>
+
+            <ul>
+                {
+                    books.map(book=>{
+                        return <li>{book.title}</li>
+                    })
+                }
+            </ul>
+
+            <ToastContainer />
 
         </>
     )

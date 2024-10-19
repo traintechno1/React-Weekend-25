@@ -4,6 +4,7 @@ import First from './components/First';
 import Second from './components/Second';
 import ValueChange from './components/ValueChange';
 import GrowTable from './components/GrowTable';
+import ListContainer from './components/ListContainer';
 
 function App() {
 
@@ -12,7 +13,8 @@ function App() {
       {/* <First />  */}
       {/* <Second/> */}
       {/* <ValueChange /> */}
-      <GrowTable />
+      {/* <GrowTable /> */}
+      <ListContainer />
     </>
   )
 }

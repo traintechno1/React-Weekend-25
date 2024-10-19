@@ -264,13 +264,13 @@ const GrowTable = () =>{
                 </table>
             </div>
 
-            <ul>
+            {/* <ul>
                 {
                     books.map(book=>{
                         return <li>{book.title}</li>
                     })
                 }
-            </ul>
+            </ul> */}
 
             <ToastContainer />
 

@@ -1,10 +1,4 @@
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import First from './components/First';
-import Second from './components/Second';
-import ValueChange from './components/ValueChange';
-import GrowTable from './components/GrowTable';
-import ListContainer from './components/ListContainer';
+import LoadData from './components/LoadData';
 
 function App() {
 
@@ -14,7 +8,8 @@ function App() {
       {/* <Second/> */}
       {/* <ValueChange /> */}
       {/* <GrowTable /> */}
-      <ListContainer />
+      {/* <ListContainer /> */}
+      <LoadData/>
     </>
   )
 }

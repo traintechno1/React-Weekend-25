@@ -13,7 +13,6 @@ const LoadData = () =>{
         console.log("useEffect gets called on initial load of the component!!")
     }, []);
 
-
     // This useEffect gets called on every change, initial load of the component
     useEffect(()=>{
         console.log("no parameter useEffect gets called");

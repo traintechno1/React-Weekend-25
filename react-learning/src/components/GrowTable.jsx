@@ -138,7 +138,6 @@ const GrowTable = () =>{
     return(
         <>
             <h3>Table</h3>
-
             <div className='flex-center'>
                 {/* User Section */}
                 <div>

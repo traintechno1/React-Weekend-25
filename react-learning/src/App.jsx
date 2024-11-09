@@ -8,18 +8,20 @@ import GrowTable from './components/GrowTable';
 import Header from './components/Header';
 import Second from './components/Second';
 import ValueChange from './components/ValueChange';
+import APICalls from './components/APICalls';
 
 function App() {
 
   return (
     <BrowserRouter>
       <Header/>
-      <div style={{padding: '20px'}}>
+      <div style={{padding: '1rem'}}>
         <Routes>
           <Route path='/' Component={ValueChange} />
           <Route path='/first' Component={First} /> 
           <Route path='/second' Component={Second} /> 
           <Route path='/table' Component={GrowTable} /> 
+          <Route path='/api' Component={APICalls} /> 
           <Route path='about' Component={About}> 
             <Route path='company' Component={AboutCompany} />
             <Route path='customer' Component={AboutCustomers} />

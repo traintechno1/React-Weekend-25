@@ -26,8 +26,13 @@ const Header = () =>{
                         <li className="nav-item">
                             <Link className="nav-link" to={'table'}>Table</Link>
                         </li>
+
                         <li className="nav-item">
-                            <Link className="nav-link" to={'about'}>About Us</Link>
+                            <Link className="nav-link" to={'api'}>API Calls</Link>
+                        </li>
+
+                        <li className="nav-item">
+                            <Link className="nav-link" to={'about/company'}>About Us</Link>
                         </li>
                     </ul>
                     </div>

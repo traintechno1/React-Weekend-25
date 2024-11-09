@@ -9,6 +9,9 @@ import Header from './components/Header';
 import Second from './components/Second';
 import ValueChange from './components/ValueChange';
 import APICalls from './components/APICalls';
+import ParemeterisedRoute from './components/ParameterisedRoute';
+import UserList from './components/UserList';
+import userDetails from './components/UserDetails';
 
 function App() {
 
@@ -22,6 +25,8 @@ function App() {
           <Route path='/second' Component={Second} /> 
           <Route path='/table' Component={GrowTable} /> 
           <Route path='/api' Component={APICalls} /> 
+          <Route path='/user-list' Component={UserList} /> 
+          <Route path='/user-details/:id/:name' Component={userDetails} /> 
           <Route path='about' Component={About}> 
             <Route path='company' Component={AboutCompany} />
             <Route path='customer' Component={AboutCustomers} />

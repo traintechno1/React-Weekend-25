@@ -7,9 +7,6 @@ import { ToastContainer, toast } from "react-toastify";
 
 
 const Cars = () =>{
-
-    let [cars, setCars] = useState([]);
-
     let initialCarObject = {
         _id: '',
         car_name: '',
@@ -19,8 +16,13 @@ const Cars = () =>{
         fuel_type: '',
         plate_no: ''
     }
+    let [cars, setCars] = useState([]);
+    let [carForm , setCarForm] = useState(initialCarObject);
 
-    let [carForm , setCarForm] = useState(initialCarObject)
+    useEffect(()=>{
+        getCarsData();
+    }, []);
+
 
     const handleFormValueChange = (event) =>{
         const {name, value} = event.target;
@@ -28,10 +30,6 @@ const Cars = () =>{
             ...carForm, [name] : value
         })
     }
-
-    useEffect(()=>{
-        getCarsData();
-    }, []);
 
     const getCarsData = () =>{
         axios.get('http://localhost:4040/car')

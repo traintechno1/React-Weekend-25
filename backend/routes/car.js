@@ -7,7 +7,8 @@ const CarSchema = mongoose.Schema({
     brand: String,
     year: Number,
     price: Number,
-    fuel_type: String
+    fuel_type: String,
+    plate_no: String
 })
 
 const CarModel = mongoose.model('car', CarSchema, 'car');
@@ -42,7 +43,8 @@ route.post('', (req, res)=>{
         brand: body.brand,
         year: body.year,
         price: body.price,
-        fuel_type: body.fuel_type
+        fuel_type: body.fuel_type,
+        plate_no: body.plate_no
     };
     
     let CarReq = new CarModel(request);
@@ -80,13 +82,14 @@ route.put('', (req, res)=>{
         brand: body.brand,
         year: body.year,
         price: body.price,
-        fuel_type: body.fuel_type
+        fuel_type: body.fuel_type,
+        plate_no: body.plate_no
     };
 
     CarModel.findByIdAndUpdate(id, request)
         .then(r=>{
             res.json({
-                message: `Record Updated Successfully`
+                message: `Car Updated Successfully`
             })
         }).catch(e=>{
             res.json(e);

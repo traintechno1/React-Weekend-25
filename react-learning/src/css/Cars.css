@@ -1,0 +1,67 @@
+.car-container{
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.add-car-container{
+    border: 1px solid #a1a2a1;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    width: 550px;
+    margin: auto;
+}
+
+.heading{
+    text-align: center;
+}
+
+.field-holder{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.form-label{
+    font-weight: 500;
+    width: 200px;
+    margin: unset !important;
+    flex: 1;
+}
+
+.fields{
+    flex: 1.5;
+    padding: 8px 0.7rem;
+    border: 1px solid #a1a2a1;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.fields:focus{
+    outline: 1px solid #1fcece;
+    border: 1px solid #1fcece;
+}
+
+.btn-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cancel-btn{
+    background: transparent;
+    color: black;
+    padding: 0.5rem 1rem;
+    border-radius: 7px;
+    border: 1px solid black;
+}
+
+.add-btn{
+    border: none;
+    background: #1dee1d;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 7px;
+}

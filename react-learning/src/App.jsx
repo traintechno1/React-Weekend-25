@@ -12,6 +12,7 @@ import APICalls from './components/APICalls';
 import ParemeterisedRoute from './components/ParameterisedRoute';
 import UserList from './components/UserList';
 import userDetails from './components/UserDetails';
+import Cars from './components/Cars';
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
             <Route path='customer' Component={AboutCustomers} />
             <Route path='product' Component={AboutProducts} />
           </Route>
+          <Route path='/cars' Component={Cars}></Route>
         </Routes>
       </div>
     </BrowserRouter>

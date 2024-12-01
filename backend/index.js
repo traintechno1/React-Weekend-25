@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express(); 
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const mongoose = require('mongoose');
 
 const GreetingRoute = require('./routes/start');
@@ -9,6 +10,7 @@ const CarRoute = require('./routes/car');
 
 
 app.use(bodyParser.json());
+app.use(cors());
 app.use('', GreetingRoute);
 app.use('/user', UserRoute);
 app.use('/car', CarRoute);

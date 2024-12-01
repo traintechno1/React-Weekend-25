@@ -1,0 +1,42 @@
+.car-box{
+    border: 1px solid #a1a2a1;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    min-width: 420px;
+    flex: 1;
+    position: relative;
+}
+
+.label{
+    font-weight: 600;
+    width: 200px;
+}
+
+.details{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.edit{
+    background: transparent;
+    color: green;
+    border: none;
+    font-size: 1.5rem;
+}
+
+.delete{
+    background: transparent;
+    color: red;
+    border: none;
+    font-size: 1.5rem; 
+}
+
+.action-btns{
+    position: absolute;
+    top: -21px;
+    right: -18px;
+    background: #e1e1e1;
+    padding: 3px 10px;
+    border-radius: 30px;
+}

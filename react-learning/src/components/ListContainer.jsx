@@ -24,11 +24,9 @@ const ListContainer = () =>{
     ]);
     
     const toggleStatus = (incomingUser) => {
-        console.log(incomingUser);
         setUsers((prevUser)=>
              prevUser.map(user=>{
                 if(user.email === incomingUser.email){
-                    console.log('matched user', user);
                     return { ...user, isActive: !user.isActive}
                 }
                 else{

@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 const userDetails = () =>{
     const { id , name } = useParams();
     useEffect(()=>{
-        console.log(id, name);
         // here I will call an API with {id} to get user details
 
         // use the details form to show the user data

@@ -67,7 +67,6 @@ const GrowTable = () =>{
 
     const addUser = (event) =>{
         event.preventDefault();
-        console.log(formData);
         if(formData.srNo && formData.firstName && formData.lastName){
             if(isInEditMode){
                 // Edit Existing User case
@@ -97,7 +96,6 @@ const GrowTable = () =>{
                 let srNo = +formData.srNo;
 
                 let userIndex = userData.findIndex(user=> +user.srNo === srNo);
-                console.log(userIndex);
                 if(userIndex === -1 ){
                     setUserData([...userData, formData]);
                 }

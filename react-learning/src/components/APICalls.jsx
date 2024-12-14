@@ -9,7 +9,7 @@ const APICalls = () =>{
 
     useEffect(()=>{
         axios.get('https://jsonplaceholder.typicode.com/posts')
-        .then(posts=>{
+        .then((posts)=>{
             setPosts(posts.data);
         })
     }, [])   

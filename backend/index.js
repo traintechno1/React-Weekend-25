@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const GreetingRoute = require('./routes/start');
 const UserRoute = require('./routes/users');
 const CarRoute = require('./routes/car');
+const AuthRoute = require('./routes/authentication');
 
 
 app.use(bodyParser.json());
@@ -14,6 +15,7 @@ app.use(cors());
 app.use('', GreetingRoute);
 app.use('/user', UserRoute);
 app.use('/car', CarRoute);
+app.use('/auth', AuthRoute);
 
 
 mongoose.connect('mongodb://localhost:27017/React25')

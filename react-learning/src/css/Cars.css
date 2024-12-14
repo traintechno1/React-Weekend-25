@@ -38,6 +38,10 @@
     font-size: 14px;
 }
 
+.fields:disabled{
+    background-color: #e4e4e4;
+}
+
 .fields:focus{
     outline: 1px solid #1fcece;
     border: 1px solid #1fcece;

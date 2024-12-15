@@ -16,9 +16,9 @@ import Cars from './components/Cars';
 import { RegisterUser } from './components/RegisterUser';
 import { Login } from './components/Login';
 import { AuthProvider } from './context/AuthContext';
+import Redux from './components/Redux';
 
 function App() {
-
   return (
     <BrowserRouter>
       <AuthProvider>
@@ -32,6 +32,7 @@ function App() {
             <Route path='/api' Component={APICalls} /> 
             <Route path='/user-list' Component={UserList} /> 
             <Route path='/user-details/:id/:name' Component={userDetails} /> 
+            <Route path='/redux' Component={Redux} /> 
             <Route path='about' Component={About}> 
               <Route path='company' Component={AboutCompany} />
               <Route path='customer' Component={AboutCustomers} />

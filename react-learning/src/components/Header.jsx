@@ -1,11 +1,13 @@
 import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import { useSelector } from 'react-redux';
 
 const Header = () =>{
 
     const {user, setUser} = useContext(AuthContext);
-
+    let {text} = useSelector(state=> state.input);
+    let {count} = useSelector(state=> state.counter);
     const navigate = useNavigate();
 
     const logout = () =>{
@@ -52,6 +54,10 @@ const Header = () =>{
                             </li>
 
                             <li className="nav-item">
+                                <Link className="nav-link" to={'redux'}>Redux</Link>
+                            </li>
+
+                            <li className="nav-item">
                                 <Link className="nav-link" to={'about/company'}>About Us</Link>
                             </li>
 
@@ -59,7 +65,12 @@ const Header = () =>{
 
                         <div className='d-flex align-items-center gap-3'>
                             <h4 className='m-0'>{user && `Hello, ${user.user.first_name} ${user.user.last_name}`}</h4>
-                            <ul className="navbar-nav">    
+                            <ul className="navbar-nav">  
+                                {
+                                    <li>
+                                        {count}
+                                    </li>
+                                }  
                                 {
                                     user?.jwt && 
                                     <li className="nav-item">

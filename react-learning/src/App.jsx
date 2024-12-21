@@ -17,6 +17,7 @@ import { RegisterUser } from './components/RegisterUser';
 import { Login } from './components/Login';
 import { AuthProvider } from './context/AuthContext';
 import Redux from './components/Redux';
+import { RestrictRoute } from './components/RestrictRoute';
 
 function App() {
   return (
@@ -29,7 +30,12 @@ function App() {
             <Route path='/first' Component={First} /> 
             <Route path='/second' Component={Second} /> 
             <Route path='/table' Component={GrowTable} /> 
-            <Route path='/api' Component={APICalls} /> 
+            <Route path='/api' 
+              element={
+                <RestrictRoute>
+                    <APICalls />
+                </RestrictRoute>
+              }/> 
             <Route path='/user-list' Component={UserList} /> 
             <Route path='/user-details/:id/:name' Component={userDetails} /> 
             <Route path='/redux' Component={Redux} /> 
@@ -38,7 +44,13 @@ function App() {
               <Route path='customer' Component={AboutCustomers} />
               <Route path='product' Component={AboutProducts} />
             </Route>
-            <Route path='/cars' Component={Cars}></Route>
+            <Route path='/cars' 
+              element={
+                <RestrictRoute>
+                    <Cars />
+                </RestrictRoute>
+              }>  
+            </Route>
             <Route path='/login' Component={Login}></Route>
             <Route path='/register' Component={RegisterUser}></Route>
           </Routes>
